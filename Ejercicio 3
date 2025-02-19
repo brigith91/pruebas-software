@@ -1,0 +1,86 @@
+def validar_email(email):
+    if '@' not in email or email.count('@') != 1:
+        return False
+
+    usuario, dominio_extension = email.split('@')
+    if not usuario or not all(c.isalnum() or c in "._`" for c in usuario):
+        return False
+
+    if '.' not in dominio_extension:
+        return False
+
+    dominio, extension = dominio_extension.rsplit('.', 1)
+    if not dominio or dominio.startswith('-') or dominio.endswith('-') or not all(c.isalnum() or c == '-' for c in dominio):
+        return False
+
+    if not (2 <= len(extension) <= 4) or not extension.isalpha():
+        return False
+
+    return True
+
+
+def test_validar_email():
+    email = "juan.perez@empresa.com"
+    expect = True
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "maria_89@univ.edu"
+    expect = True
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "a.b-c@web-site.net"
+    expect = False
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "usuario123@mi-dominio.org"
+    expect = True
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "john.doe@company.io"
+    expect = True
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "sin_arroba.com"
+    expect = False
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "espacios en@correo.com"
+    expect = False
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "user@dominio"
+    expect = False
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "nombre@dominio.c"
+    expect = False
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    email = "mal#email@mail.com"
+    expect = False
+    result = validar_email(email)
+    print(f"Prueba pasada: {expect == result} → Resultado: {result}")
+    assert expect == result, f" Falló: '{email}' → Se esperaba {expect}, pero se obtuvo {result}"
+
+    print("Todas las pruebas pasaron correctamente")
+
+
+test_validar_email()
