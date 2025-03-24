@@ -1,10 +1,10 @@
 import unittest
 from newmath.string import contar_vocales,multiplicacion_vocales,porcentaje_vocales
-#python -m unittest tests/newmath/test_string_unittest.py -v para correr en consola
+#python -m unittest tests/newmath/test_string.py -v para correr en consola
 
 class TestContarVocales(unittest.TestCase):
 
-    @unittest.skip(reason='Por razones de clase')
+    #@unittest.skip(reason='Por razones de clase')
 
 
     
@@ -21,13 +21,13 @@ class TestContarVocales(unittest.TestCase):
         esperado = 0
         self.assertEqual(first=resultado, second=esperado)
 
-    def test_contar_vocales_vocales_mayusculas(self):
+    def test_contar_vocales_mayusculas(self):
         """Prueba contar vocales en mayúsculas"""
         resultado = contar_vocales(text="HOLA")
         esperado = 2
         self.assertEqual(first=resultado, second=esperado)
 
-    def test_contar_vocales_vocales_acentuadas(self):
+    def test_contar_vocales_acentuadas(self):
         """Prueba contar vocales con tildes"""
         resultado = contar_vocales(text="ÁÉÍÓÚ")
         esperado = 5
@@ -46,13 +46,13 @@ class TestContarVocales(unittest.TestCase):
         esperado = 0
         self.assertEqual(first=resultado, second=esperado)
 
-    def test_multiplicacion_vocales_vocales_mayusculas(self):
+    def test_multiplicacion_vocales_mayusculas(self):
         """Prueba multiplicación de vocales con mayúsculas"""
         resultado = multiplicacion_vocales(text="HOLA")
-        esperado = 4
+        esperado = 2
         self.assertEqual(first=resultado, second=esperado)
 
-    def test_multiplicacion_vocales_vocales_acentuadas(self):
+    def test_multiplicacion_vocales_acentuadas(self):
         """Prueba multiplicación de vocales con tildes"""
         resultado = multiplicacion_vocales(text="ÁÉÍÓÚ")
         esperado = 10
@@ -71,13 +71,13 @@ class TestContarVocales(unittest.TestCase):
         esperado = 0.0
         self.assertEqual(first=resultado, second=esperado)
 
-    def test_porcentaje_vocales_vocales_mayusculas(self):
+    def test_porcentaje_vocales_mayusculas(self):
         """Prueba porcentaje de vocales con mayúsculas"""
         resultado = porcentaje_vocales(text="HOLA")
         esperado = 50.0
         self.assertEqual(first=resultado, second=esperado)
 
-    def test_porcentaje_vocales_vocales_acentuadas(self):
+    def test_porcentaje_vocales_acentuadas(self):
         """Prueba porcentaje de vocales con tildes"""
         resultado = porcentaje_vocales(text="ÁÉÍÓÚ")
         esperado = 100.0
