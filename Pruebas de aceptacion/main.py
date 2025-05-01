@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 import time 
 
 #pip install selenium
-# python -m venv .venv
-# python ./main.py correr slash contrario
+# python -m venv .venv = correr el entorno
+# python .\main.py = correr codigo
 
 #driver = webdriver.Chrome()
 #driver.get("https://www.google.com")
