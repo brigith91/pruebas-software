@@ -2,9 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time 
 
-#pip install selenium
-# python -m venv .venv = correr el entorno
-# python .\main.py = correr codigo
+# 3pip install selenium
+# 1 python -m venv .venv = correr el entorno
+# 4 python .\main.py = correr codigo
+# 2./.venv/Scripts/activate 
+
 
 #driver = webdriver.Chrome()
 #driver.get("https://www.google.com")
